@@ -28,7 +28,7 @@ let initialized = false;
  * Default options
  */
 let options = {
-  offset: 120,
+  offset: 40,
   delay: 0,
   easing: 'ease',
   duration: 400,

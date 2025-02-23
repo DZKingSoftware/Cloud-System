@@ -60,8 +60,6 @@ $(document).ready(function(){
         infinite: true,
         speed: 300,
         slidesToShow: 1,
-        adaptiveHeight: true,
-        stagePadding: 10
     });
 });
 document.addEventListener('DOMContentLoaded', function () {
@@ -80,9 +78,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function startCounter(counter) {
         const target = +counter.getAttribute("data-count");
-        const suffix = counter.getAttribute("data-suffix") || ""; // Belgini olish
+        const suffix = counter.getAttribute("data-suffix") || "";
         let count = 0;
-        const step = Math.ceil(target / 100); // 100 ta qadam bilan hisoblash
+        const step = Math.ceil(target / 100);
 
         function updateCounter() {
             if (count < target) {
@@ -90,22 +88,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 counter.innerText = count + suffix;
                 requestAnimationFrame(updateCounter);
             } else {
-                counter.innerText = target + suffix; // Oxirgi qiymatni aniq qo‘yish
+                counter.innerText = target + suffix;
             }
         }
 
         updateCounter();
     }
 
-    // Scrollni kuzatish uchun Intersection Observer
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 startCounter(entry.target);
-                observer.unobserve(entry.target); // Bir marta sanab keyin o‘chadi
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 1.0 }); // Elementning 50% ko‘ringanda boshlansin
+    }, { threshold: 1.0 });
 
     counters.forEach(counter => {
         observer.observe(counter);
@@ -118,12 +115,10 @@ const containerTwo = document.querySelector('.scrolling-container.two');
 const text = document.querySelector('.scrolling-text');
 
 const cloneText = text.cloneNode(true);
-// const rightClone = rightText.cloneNode(true);
 container.appendChild(cloneText);
-// containerTwo.appendChild(rightClone)
 
 function footer() {
-    const footerItem = document.querySelectorAll('.footer-link').forEach(footerItem => {
+    const footerItem = document.querySelectorAll('.footer-link.two').forEach(footerItem => {
         footerItem.classList.toggle('footer-link-res');
         footerItem.style.maxHeight = '45px'
         footerItem.addEventListener('click', () => {
