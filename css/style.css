@@ -23,9 +23,6 @@ button {
   transition: .5s ease-in-out;
   text-transform: uppercase !important;
 }
-[data-aos] {
-  overflow-x: hidden;
-}
 /* Spinner */
 #spinner {
     position: fixed;
